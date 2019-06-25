@@ -13,6 +13,13 @@ public class AdminViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view);
 
+        AdminActionFragment adminActionFragment = new AdminActionFragment();
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.frame_admin,
+                        adminActionFragment,
+                        getResources().getString(R.string.admin_action_fragment))
+                .commit();
     }
 }

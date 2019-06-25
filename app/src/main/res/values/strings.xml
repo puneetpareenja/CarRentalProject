@@ -9,4 +9,5 @@
     <string name="manage_cars">Manage Cars</string>
     <string name="manage_employees">Manage Employees</string>
     <string name="manage_users">Manage Users</string>
+    <string name="admin_action_fragment">Admin Action Fragment</string>
 </resources>
