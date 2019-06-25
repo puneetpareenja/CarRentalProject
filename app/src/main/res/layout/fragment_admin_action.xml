@@ -21,7 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/manage_cars" />
+            android:text="@string/manage_cars"
+            android:clickable="true"
+            android:focusable="true" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -36,7 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/manage_employees" />
+            android:text="@string/manage_employees"
+            android:clickable="true"
+            android:focusable="true"/>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -51,7 +55,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/manage_users" />
+            android:text="@string/manage_users"
+            android:clickable="true"
+            android:focusable="true"/>
     </androidx.cardview.widget.CardView>
 
 </GridLayout>
