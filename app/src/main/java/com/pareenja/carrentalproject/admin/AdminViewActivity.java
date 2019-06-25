@@ -1,8 +1,10 @@
-package com.pareenja.carrentalproject;
+package com.pareenja.carrentalproject.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.pareenja.carrentalproject.R;
 
 public class AdminViewActivity extends AppCompatActivity {
 
@@ -10,5 +12,7 @@ public class AdminViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view);
+
+
     }
 }
