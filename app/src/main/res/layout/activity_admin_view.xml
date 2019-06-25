@@ -1,57 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2"
     android:padding="24dp"
-    android:rowCount="3"
     tools:context=".AdminViewActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_height="0dp"
-        android:layout_width="0dp"
-        android:layout_margin="8dp"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
+    <FrameLayout
+        android:id="@+id/frame_admin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/text_view_manage_cars"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Manage Cars"
-            android:gravity="center"/>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_height="0dp"
-        android:layout_width="0dp"
-        android:layout_margin="8dp"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
-
-        <TextView
-            android:id="@+id/text_view_manage_employees"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Manage Employees"
-            android:gravity="center"/>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_height="0dp"
-        android:layout_width="0dp"
-        android:layout_margin="8dp"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
-
-        <TextView
-            android:id="@+id/text_view_manage_users"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Manage Users"
-            android:gravity="center"/>
-    </androidx.cardview.widget.CardView>
-
-</GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
