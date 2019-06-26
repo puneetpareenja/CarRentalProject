@@ -1,4 +1,4 @@
-package com.pareenja.carrentalproject;
+package com.pareenja.carrentalproject.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.pareenja.carrentalproject.admin.AdminViewActivity;
+import com.pareenja.carrentalproject.R;
+import com.pareenja.carrentalproject.activities.AdminViewActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

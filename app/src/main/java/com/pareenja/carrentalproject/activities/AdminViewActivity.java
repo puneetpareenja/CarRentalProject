@@ -1,13 +1,14 @@
-package com.pareenja.carrentalproject.admin;
+package com.pareenja.carrentalproject.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.pareenja.carrentalproject.R;
+import com.pareenja.carrentalproject.fragments.AdminActionFragment;
+import com.pareenja.carrentalproject.fragments.ManageCarsFragment;
 
 public class AdminViewActivity
         extends AppCompatActivity

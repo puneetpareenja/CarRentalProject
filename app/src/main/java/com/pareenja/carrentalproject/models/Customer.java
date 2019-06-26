@@ -1,4 +1,4 @@
-package com.pareenja.carrentalproject;
+package com.pareenja.carrentalproject.models;
 
 public class Customer {
     private int id;

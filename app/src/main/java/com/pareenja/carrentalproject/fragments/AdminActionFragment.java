@@ -1,4 +1,4 @@
-package com.pareenja.carrentalproject.admin;
+package com.pareenja.carrentalproject.fragments;
 
 
 import android.app.Activity;
@@ -75,8 +75,7 @@ public class AdminActionFragment extends Fragment implements View.OnClickListene
         }
     }
 
-    interface AdminActionListener {
+    public interface AdminActionListener {
         public void addFragment(String string);
     }
-
 }

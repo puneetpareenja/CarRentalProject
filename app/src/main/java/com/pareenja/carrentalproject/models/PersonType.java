@@ -1,4 +1,4 @@
-package com.pareenja.carrentalproject;
+package com.pareenja.carrentalproject.models;
 
 public enum PersonType {
     CUSTOMER,

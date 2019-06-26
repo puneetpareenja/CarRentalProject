@@ -1,4 +1,4 @@
-package com.pareenja.carrentalproject.admin;
+package com.pareenja.carrentalproject.fragments;
 
 
 import android.os.Bundle;
