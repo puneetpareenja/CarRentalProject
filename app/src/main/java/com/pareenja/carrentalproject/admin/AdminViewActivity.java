@@ -3,6 +3,7 @@ package com.pareenja.carrentalproject.admin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.pareenja.carrentalproject.R;
 
@@ -27,6 +28,14 @@ public class AdminViewActivity
 
     @Override
     public void addFragment(String string) {
-
+        switch (string) {
+            case "cars":
+                Toast.makeText(this, "Cars", Toast.LENGTH_SHORT).show();
+                break;
+            case "employees":
+                break;
+            case "users":
+                break;
+        }
     }
 }

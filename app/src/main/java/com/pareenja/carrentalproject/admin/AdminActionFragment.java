@@ -52,13 +52,13 @@ public class AdminActionFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.text_view_manage_cars:
-                Toast.makeText(getContext(), "Manage Cars", Toast.LENGTH_SHORT).show();
+                adminActionListener.addFragment("cars");
                 break;
             case R.id.text_view_manage_employees:
-                Toast.makeText(getContext(), "Manage Employees", Toast.LENGTH_SHORT).show();
+                adminActionListener.addFragment("employees");
                 break;
             case R.id.text_view_manage_users:
-                Toast.makeText(getContext(), "Manage Users", Toast.LENGTH_SHORT).show();
+                adminActionListener.addFragment("users");
                 break;
         }
     }
@@ -71,7 +71,7 @@ public class AdminActionFragment extends Fragment implements View.OnClickListene
             adminActionListener = (AdminActionListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement NoticeDialogListener");
+                    + " must implement AdminActionListener");
         }
     }
 
