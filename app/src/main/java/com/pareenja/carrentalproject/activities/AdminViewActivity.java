@@ -1,18 +1,19 @@
 package com.pareenja.carrentalproject.activities;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-
 import com.pareenja.carrentalproject.R;
 import com.pareenja.carrentalproject.fragments.AdminActionFragment;
 import com.pareenja.carrentalproject.fragments.ManageCarsFragment;
+import com.pareenja.carrentalproject.interfaces.AdminActionListener;
 
 public class AdminViewActivity
         extends AppCompatActivity
-        implements AdminActionFragment.AdminActionListener {
+        implements AdminActionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
