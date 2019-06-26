@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.pareenja.carrentalproject.R;
+import com.pareenja.carrentalproject.fragments.AddCarFragment;
 import com.pareenja.carrentalproject.fragments.AdminActionFragment;
 import com.pareenja.carrentalproject.fragments.ManageCarsFragment;
 import com.pareenja.carrentalproject.interfaces.AdminActionListener;
@@ -24,7 +25,7 @@ public class AdminViewActivity
         AdminActionFragment adminActionFragment = new AdminActionFragment();
         displayNewFragment(R.id.frame_admin,
                 adminActionFragment,
-                getResources().getString(R.string.admin_action_fragment),
+                getString(R.string.admin_action_fragment),
                 false);
     }
 
@@ -35,7 +36,7 @@ public class AdminViewActivity
                 ManageCarsFragment manageCarsFragment = new ManageCarsFragment();
                 displayNewFragment(R.id.frame_admin,
                         manageCarsFragment,
-                        getResources().getString(R.string.manage_cars_fragment),
+                        getString(R.string.manage_cars_fragment),
                         true);
                 break;
 
@@ -46,7 +47,11 @@ public class AdminViewActivity
                 break;
 
             case "add car":
-                Toast.makeText(this, "Add Car", Toast.LENGTH_SHORT).show();
+                AddCarFragment addCarFragment = new AddCarFragment();
+                displayNewFragment(R.id.frame_admin,
+                        addCarFragment,
+                        getString(R.string.add_car_fragment),
+                        true);
                 break;
         }
     }
