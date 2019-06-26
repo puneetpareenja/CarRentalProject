@@ -6,7 +6,9 @@ import android.os.Bundle;
 
 import com.pareenja.carrentalproject.R;
 
-public class AdminViewActivity extends AppCompatActivity {
+public class AdminViewActivity
+        extends AppCompatActivity
+        implements AdminActionFragment.AdminActionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +23,10 @@ public class AdminViewActivity extends AppCompatActivity {
                         adminActionFragment,
                         getResources().getString(R.string.admin_action_fragment))
                 .commit();
+    }
+
+    @Override
+    public void addFragment(String string) {
+
     }
 }

@@ -1,6 +1,8 @@
 package com.pareenja.carrentalproject.admin;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.pareenja.carrentalproject.R;
  */
 public class AdminActionFragment extends Fragment implements View.OnClickListener {
 
+    private AdminActionListener adminActionListener;
 
     public AdminActionFragment() {
         // Required empty public constructor
@@ -59,4 +62,21 @@ public class AdminActionFragment extends Fragment implements View.OnClickListene
                 break;
         }
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            adminActionListener = (AdminActionListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement NoticeDialogListener");
+        }
+    }
+
+    interface AdminActionListener {
+        public void addFragment(String string);
+    }
+
 }
