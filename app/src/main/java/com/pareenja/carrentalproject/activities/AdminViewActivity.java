@@ -1,6 +1,7 @@
 package com.pareenja.carrentalproject.activities;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -36,12 +37,16 @@ public class AdminViewActivity
                         manageCarsFragment,
                         getResources().getString(R.string.manage_cars_fragment),
                         true);
-
-
                 break;
+
             case "employees":
                 break;
+
             case "users":
+                break;
+
+            case "add car":
+                Toast.makeText(this, "Add Car", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
