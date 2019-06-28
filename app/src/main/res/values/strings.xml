@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Car Rental Project</string>
     <string name="login">Login</string>
-    <string name="password">Password</string>
     <string name="username">Username</string>
 
     <string name="manage_cars">Manage Cars</string>
@@ -19,4 +18,12 @@
     <string name="capacity">Capacity</string>
     <string name="price_per_hour">Price Per Hour</string>
     <string name="price_per_day">Price Per Day</string>
+    <string name="register_with_us">Don't Have a account? Register</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
 </resources>
