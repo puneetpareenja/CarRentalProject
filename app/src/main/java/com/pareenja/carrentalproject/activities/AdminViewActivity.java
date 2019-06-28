@@ -1,7 +1,6 @@
 package com.pareenja.carrentalproject.activities;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -16,6 +15,8 @@ import com.pareenja.carrentalproject.interfaces.AdminActionListener;
 public class AdminViewActivity
         extends AppCompatActivity
         implements AdminActionListener {
+
+    private static final String TAG = "AdminViewActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

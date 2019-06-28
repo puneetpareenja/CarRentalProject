@@ -16,4 +16,7 @@
     <string name="color">Color</string>
     <string name="add_car">Add Car</string>
     <string name="add_car_fragment">Add Car Fragment</string>
+    <string name="capacity">Capacity</string>
+    <string name="price_per_hour">Price Per Hour</string>
+    <string name="price_per_day">Price Per Day</string>
 </resources>
