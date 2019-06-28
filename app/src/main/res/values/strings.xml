@@ -18,7 +18,7 @@
     <string name="capacity">Capacity</string>
     <string name="price_per_hour">Price Per Hour</string>
     <string name="price_per_day">Price Per Day</string>
-    <string name="register_with_us">Don't Have a account? Register</string>
+    <string name="register_with_us">Don\'t Have a account? Register</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
