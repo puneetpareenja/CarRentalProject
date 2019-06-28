@@ -7,8 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.pareenja.carrentalproject.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -18,14 +23,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Button mLoginButton;
     TextView mRegisterTextView;
 
+    FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mAuth = FirebaseAuth.getInstance();
+
         initLayout();
-
-
     }
 
     private void initLayout() {
@@ -42,8 +49,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_login:
-                Intent intent = new Intent(this, AdminViewActivity.class);
-                startActivity(intent);
+                mAuth.signInWithEmailAndPassword(
+                        mUserNameEditText.getText().toString(),
+                        mPasswordEditText.getText().toString())
+                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                startActivity(
+                                        new Intent(
+                                                LoginActivity.this,
+                                                ViewCarsActivity.class));
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                            }
+                        });
                 break;
 
             case R.id.text_view_register:

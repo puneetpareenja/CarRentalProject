@@ -1,5 +1,6 @@
 package com.pareenja.carrentalproject.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.pareenja.carrentalproject.R;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -63,11 +65,25 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(
+                                            RegisterActivity.this,
+                                            "User Created",
+                                            Toast.LENGTH_SHORT)
+                                            .show();
+                                    startActivity(
+                                            new Intent(
+                                                    RegisterActivity.this
+                                                    , LoginActivity.class));
                                 } else {
-                                    // If sign in fails, display a message to the user.
-                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+
+                                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                        Toast.makeText(
+                                                RegisterActivity.this,
+                                                "User Already Exists",
+                                                Toast.LENGTH_SHORT)
+                                                .show();
+                                    }
+
                                 }
                             }
                         });
