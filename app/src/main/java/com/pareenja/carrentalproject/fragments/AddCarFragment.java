@@ -61,9 +61,27 @@ public class AddCarFragment extends Fragment implements View.OnClickListener {
 
         buttonAddCar.setOnClickListener(this);
 
+        makeEditTextClearOnClick(vinEditText);
+        makeEditTextClearOnClick(modelEditText);
+        makeEditTextClearOnClick(brandEditText);
+        makeEditTextClearOnClick(colorEditText);
+        makeEditTextClearOnClick(capacityEditText);
+        makeEditTextClearOnClick(pricePerDayEditText);
+        makeEditTextClearOnClick(pricePerHourEditText);
+
         firebaseFirestore = FirebaseFirestore.getInstance();
     }
 
+    private void makeEditTextClearOnClick(final EditText editText) {
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    editText.setText("");
+                }
+            }
+        });
+    }
 
     @Override
     public void onClick(View v) {
