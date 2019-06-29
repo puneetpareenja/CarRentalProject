@@ -11,16 +11,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.pareenja.carrentalproject.R;
 import com.pareenja.carrentalproject.models.Car;
 
 public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarAdapter.ViewHolder> {
 
+    private OnItemClickListener listener;
 
     public ViewAllCarAdapter(@NonNull FirestoreRecyclerOptions<Car> options) {
         super(options);
@@ -39,12 +40,6 @@ public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarA
                         + " / "
                         + format.format(car.getPricePerDay()));
 
-        viewHolder.parentCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
     @NonNull
@@ -56,13 +51,20 @@ public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarA
         return new ViewHolder(view);
     }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(DocumentSnapshot documentSnapshot, int position);
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView carImageView;
         TextView carNameTextView;
         TextView carColorTextView;
         TextView carPriceTextView;
-        CardView parentCardView;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,8 +73,17 @@ public class ViewAllCarAdapter extends FirestoreRecyclerAdapter<Car, ViewAllCarA
             carNameTextView = itemView.findViewById(R.id.text_view_car_name);
             carColorTextView = itemView.findViewById(R.id.text_view_car_color);
             carPriceTextView = itemView.findViewById(R.id.text_view_car_price);
-            parentCardView = itemView.findViewById(R.id.card_view_parent);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION
+                            && listener != null) {
+                        listener.onItemClick(getSnapshots().getSnapshot(position), position);
+                    }
+                }
+            });
         }
 
     }

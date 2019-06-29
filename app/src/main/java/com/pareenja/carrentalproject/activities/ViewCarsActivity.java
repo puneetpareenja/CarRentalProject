@@ -1,6 +1,7 @@
 package com.pareenja.carrentalproject.activities;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.pareenja.carrentalproject.R;
@@ -48,6 +50,19 @@ public class ViewCarsActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(viewAllCarAdapter);
+
+        viewAllCarAdapter.setOnItemClickListener(new ViewAllCarAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                Car car = documentSnapshot.toObject(Car.class);
+                String id = documentSnapshot.getId();
+
+                Toast.makeText(ViewCarsActivity.this,
+                        "Clicked Item with ID : " + id,
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
     }
 
     @Override
