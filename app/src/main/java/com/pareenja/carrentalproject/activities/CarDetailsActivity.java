@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.pareenja.carrentalproject.R;
+
 public class CarDetailsActivity extends AppCompatActivity {
 
     @Override
