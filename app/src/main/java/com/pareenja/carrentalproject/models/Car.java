@@ -68,4 +68,17 @@ public class Car {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "vinNumber='" + vinNumber + '\'' +
+                ", carModel='" + carModel + '\'' +
+                ", brand='" + brand + '\'' +
+                ", color='" + color + '\'' +
+                ", capacity=" + capacity +
+                ", pricePerHour=" + pricePerHour +
+                ", pricePerDay=" + pricePerDay +
+                '}';
+    }
 }
