@@ -1,7 +1,6 @@
 package com.pareenja.carrentalproject.activities;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -57,10 +56,7 @@ public class ViewCarsActivity extends AppCompatActivity {
                 Car car = documentSnapshot.toObject(Car.class);
                 String id = documentSnapshot.getId();
 
-                Toast.makeText(ViewCarsActivity.this,
-                        "Clicked Item with ID : " + id,
-                        Toast.LENGTH_SHORT)
-                        .show();
+
             }
         });
     }
