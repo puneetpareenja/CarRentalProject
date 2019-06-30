@@ -1,5 +1,6 @@
 package com.pareenja.carrentalproject.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,9 +55,11 @@ public class ViewCarsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
                 Car car = documentSnapshot.toObject(Car.class);
-                String id = documentSnapshot.getId();
+                car.setId(documentSnapshot.getId());
 
-
+                Intent intent = new Intent(ViewCarsActivity.this, CarDetailsActivity.class);
+                intent.putExtra("car", car);
+                startActivity(intent);
             }
         });
     }
