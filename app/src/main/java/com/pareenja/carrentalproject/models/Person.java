@@ -1,12 +1,13 @@
 package com.pareenja.carrentalproject.models;
 
-public class User {
+public class Person {
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
+    private PersonType personType;
 
-    public User() {
+    public Person() {
     }
 
     public String getFirstName() {

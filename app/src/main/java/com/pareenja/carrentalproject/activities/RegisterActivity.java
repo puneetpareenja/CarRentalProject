@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.pareenja.carrentalproject.R;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     Button mRegisterButton;
 
     private FirebaseAuth mAuth;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mRegisterButton = findViewById(R.id.button_register);
 
         mRegisterButton.setOnClickListener(this);
+
+        db = FirebaseFirestore.getInstance();
     }
 
     @Override
@@ -65,11 +69,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(
-                                            RegisterActivity.this,
-                                            "User Created",
-                                            Toast.LENGTH_SHORT)
-                                            .show();
+
+
                                     startActivity(
                                             new Intent(
                                                     RegisterActivity.this
