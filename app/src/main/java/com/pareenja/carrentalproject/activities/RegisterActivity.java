@@ -3,6 +3,7 @@ package com.pareenja.carrentalproject.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -19,8 +20,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pareenja.carrentalproject.R;
+import com.pareenja.carrentalproject.models.Person;
+import com.pareenja.carrentalproject.models.PersonType;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = "RegisterActivity";
 
     EditText mFirstNameEditText;
     EditText mLastNameEditText;
@@ -69,14 +74,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-
-
+                                    Log.d(TAG, "onComplete: " + FirebaseAuth.getInstance().getUid());
+                                    Person person = new Person();
+                                    person.setId(FirebaseAuth.getInstance().getUid());
+                                    person.setFirstName(mFirstNameEditText.getText().toString());
+                                    person.setLastName(mLastNameEditText.getText().toString());
+                                    person.setPersonType(PersonType.CUSTOMER);
+                                    person.setEmail(mEmailEditText.getText().toString());
+                                    person.setPhoneNumber(mPhoneNumberEditText.getText().toString());
+                                    db.collection("users").document(person.getId()).set(person);
+                                    Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_SHORT).show();
                                     startActivity(
                                             new Intent(
                                                     RegisterActivity.this
                                                     , LoginActivity.class));
                                 } else {
-
+                                    Log.d(TAG, "onComplete: " + task.getException().getMessage());
                                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                                         Toast.makeText(
                                                 RegisterActivity.this,

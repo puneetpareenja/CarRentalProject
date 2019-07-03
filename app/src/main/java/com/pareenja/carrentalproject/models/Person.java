@@ -1,11 +1,29 @@
 package com.pareenja.carrentalproject.models;
 
 public class Person {
+
+    String id;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
     private PersonType personType;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public PersonType getPersonType() {
+        return personType;
+    }
+
+    public void setPersonType(PersonType personType) {
+        this.personType = personType;
+    }
 
     public Person() {
     }
